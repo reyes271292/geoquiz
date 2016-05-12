@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -85,6 +86,11 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        if(savedInstanceState != null){
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0);
+            Log.d(TAG,"Current question index: "+mCurrentIndex);
+        }
+
         updateQuestion();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -98,6 +104,13 @@ public class QuizActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle saveInstanceState){
+        super.onSaveInstanceState(saveInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        saveInstanceState.putInt(KEY_INDEX,mCurrentIndex);
     }
 
     @Override
