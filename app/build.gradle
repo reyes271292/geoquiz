@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+    apply plugin: 'groovyx.grooid.groovy-android'
 
     defaultConfig {
         applicationId "com.bignerdranch.android.geoquiz"
@@ -24,4 +25,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
+    compile 'org.codehaus.groovy:groovy:2.4.6:grooid'
+    compile 'com.github.groovy-wslite:groovy-wslite:1.1.2'
 }
